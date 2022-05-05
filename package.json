@@ -6,19 +6,19 @@
   "scripts": {
     "prepare": "npx husky install",
     "build": "npx babel src --out-dir dist",
-    "start": "npm run build && node dest/index",
+    "start": "npm run build && node dist/index",
     "git:add": "git add -A",
     "git:commit": "cz",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "npx knex migrate:latest --knexfile src/config/knexfile.js",
+    "migrate:latest": "npm run migrate",
+    "migrate:rollback": "npx knex migrate:rollback --knexfile src/config/knexfile.js",
+    "migrate:rollback:all": "npx knex migrate:rollback --all --knexfile src/config/knexfile.js",
+    "migrate:list": "npx knex migrate:list --knexfile src/config/knexfile.js",
+    "seed:run": "npx knex seed:run --knexfile src/config/knexfile.js",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "lint:check": "npx eslint .",
     "lint:fix": "npx eslint --fix ."
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "prettier --write . && git add -A ."
-    }
   },
   "keywords": [],
   "author": "",
@@ -37,5 +37,14 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "babel-plugin-module-resolver": "^4.1.0",
+    "body-parser": "^1.20.0",
+    "bookshelf": "^1.2.0",
+    "express": "^4.18.1",
+    "knex": "^0.21.21",
+    "module-alias": "^2.2.2",
+    "mysql": "^2.18.1"
   }
 }
