@@ -1,10 +1,10 @@
-    {
+{
   "name": "todoes6",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "npx husky install",
     "build": "npx babel src --out-dir dist",
     "start": "npm run build && node dest/index",
     "git:add": "git add -A",
