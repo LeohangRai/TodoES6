@@ -1,5 +1,5 @@
 import express from "express"
-import taskCtrl from "../controllers/tasksController.js"
+import taskCtrl from "@Controllers/tasksController.js"
 
 const Router = express.Router()
 

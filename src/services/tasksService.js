@@ -1,5 +1,5 @@
-import BaseService from "./baseService"
-import Task from "../models/Task"
+import BaseService from "@BaseService"
+import Task from "@Models/Task"
 
 class TasksService extends BaseService {
   constructor(model) {

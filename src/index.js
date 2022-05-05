@@ -1,8 +1,8 @@
-import "./config/dotenv"
 require("module-alias/register")
+import "@config/dotenv"
 import express from "express"
 import bodyParser from "body-parser"
-import tasksRoute from "./routes/tasksRoute"
+import tasksRoute from "@Routes/tasksRoute"
 const app = express()
 const PORT = process.env.PORT || 3000
 

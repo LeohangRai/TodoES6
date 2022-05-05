@@ -20,6 +20,16 @@
     "lint:check": "npx eslint .",
     "lint:fix": "npx eslint --fix ."
   },
+  "_moduleAliases": {
+    "@root": "./src",
+    "@config": "./src/config",
+    "@Routes": "./src/routes",
+    "@Controllers": "./src/controllers",
+    "@Models": "./src/models",
+    "@Services": "./src/services",
+    "@BaseController": "./src/controllers/baseController.js",
+    "@BaseService": "./src/services/baseService.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

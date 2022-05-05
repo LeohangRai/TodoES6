@@ -1,5 +1,5 @@
-import BaseController from "./baseController"
-import tasksService from "../services/tasksService"
+import BaseController from "@BaseController"
+import tasksService from "@Services/tasksService"
 class TasksController extends BaseController {
   constructor(service) {
     super(service)

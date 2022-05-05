@@ -17,7 +17,13 @@
       {
         "root": ["./"],
         "alias": {
-          "@config": "dest/config"
+          "@config": "./dist/config",
+          "@Routes": "./dist/routes",
+          "@Controllers": "./dist/controllers",
+          "@Models": "./dist/models",
+          "@Services": "./dist/services",
+          "@BaseController": "./dist/controllers/baseController.js",
+          "@BaseService": "./dist/services/baseService.js"
         }
       }
     ]

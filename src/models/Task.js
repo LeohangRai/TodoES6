@@ -1,4 +1,4 @@
-import bs from "../config/bookshelf.js"
+import bs from "@config/bookshelf.js"
 
 const tableName = "tasks"
 const Task = bs.model(
