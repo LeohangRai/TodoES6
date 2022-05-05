@@ -1,0 +1,33 @@
+{
+    "name": "todoes6",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "git:add": "git add -A",
+        "git:commit": "cz",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "format:write": "prettier --write .",
+        "lint:check": "npx eslint .",
+        "lint:fix": "npx eslint --fix ."        
+    },
+    "husky": {
+        "pre-commit": "prettier --write . && git add -A"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "cz-conventional-changelog": "^3.3.0",
+        "eslint": "^8.14.0",
+        "eslint-config-prettier": "^8.5.0",
+        "husky": "^7.0.4",
+        "prettier": "^2.6.2"
+        
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    }
+}
