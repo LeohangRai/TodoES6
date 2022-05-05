@@ -5,22 +5,24 @@
  */
 module.exports = {
   development: {
-    client: "mysql",
+    client: process.env.DB_CONNECTION,
     connection: {
-      port: 3306,
-      host: "127.0.0.1",
-      database: "todoes6",
-      user: "root",
-      password: "",
+      host: process.env.MYSQL_HOST,
+      port: process.env.MYSQL_PORT,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DB_NAME,
     },
   },
 
   staging: {
-    client: "postgresql",
+    client: process.env.DB_CONNECTION,
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
+      host: process.env.MYSQL_HOST,
+      port: process.env.MYSQL_PORT,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DB_NAME,
     },
     pool: {
       min: 2,
@@ -32,11 +34,13 @@ module.exports = {
   },
 
   production: {
-    client: "postgresql",
+    client: process.env.DB_CONNECTION,
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
+      host: process.env.MYSQL_HOST,
+      port: process.env.MYSQL_PORT,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DB_NAME,
     },
     pool: {
       min: 2,

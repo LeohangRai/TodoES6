@@ -1,9 +1,10 @@
+import "./config/dotenv"
 require("module-alias/register")
 import express from "express"
 import bodyParser from "body-parser"
-// import tasksRoute from './routes/tasksRoute.js'
 import tasksRoute from "./routes/tasksRoute"
 const app = express()
+const PORT = process.env.PORT || 3000
 
 // parse application/json
 app.use(bodyParser.json())
@@ -20,6 +21,6 @@ app.get("/", (req, res) => {
 
 app.use("/tasks", tasksRoute)
 
-app.listen(3000, () => {
-  console.log("Server is up and running at PORT: ", 3000)
+app.listen(PORT, () => {
+  console.log("Server is up and running at PORT: ", PORT)
 })
