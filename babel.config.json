@@ -1,25 +1,25 @@
 {
-    "presets": [
-        [
-            "@babel/preset-env",
-            {
-                "targets": {
-                    "node": "current"
-                },
-                "useBuiltIns": "usage",
-                "corejs": "3.6.5"
-            }
-        ]
-    ],
-    "plugins": [
-        [
-            "module-resolver",
-            {
-                "root": ["./"],
-                "alias": {
-                    "@config": "dest/config"
-                }
-            }
-        ]
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        },
+        "useBuiltIns": "usage",
+        "corejs": "3.6.5"
+      }
     ]
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@config": "dest/config"
+        }
+      }
+    ]
+  ]
 }
