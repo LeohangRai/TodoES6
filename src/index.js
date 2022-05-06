@@ -3,6 +3,7 @@ import "@config/dotenv"
 import express from "express"
 import bodyParser from "body-parser"
 import tasksRoute from "@Routes/tasksRoute"
+import userRoute from "@Routes/userRoute"
 const app = express()
 const PORT = process.env.PORT || 3000
 
@@ -18,8 +19,9 @@ app.get("/", (req, res) => {
     error: false,
   })
 })
-
+// List Of All Routes
 app.use("/tasks", tasksRoute)
+app.use("/user", userRoute)
 
 app.listen(PORT, () => {
   console.log("Server is up and running at PORT: ", PORT)
