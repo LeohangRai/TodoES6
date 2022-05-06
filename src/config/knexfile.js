@@ -1,8 +1,9 @@
 // Update with your config settings.
+require("dotenv").config({ path: "../../.env" })
 
 module.exports = {
   development: {
-    client: "mysql",
+    client: process.env.DB_CONNECTION,
     connection: {
       host: process.env.HOST,
       port: process.env.MYSQL_PORT,
