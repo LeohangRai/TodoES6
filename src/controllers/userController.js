@@ -1,7 +1,5 @@
 import BaseController from "./baseController"
 import UserService from "../services/userService"
-import User from "../models/User"
-import { json } from "body-parser"
 
 class UserController extends BaseController {
   constructor(service) {

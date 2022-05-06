@@ -12,14 +12,7 @@ const Task = bs.model(
     getTableName: function () {
       return tableName
     },
-
-    // update: function(data) {
-    //     this.where({ id }).fetch({ require: true })
-    // }
   }
 )
 
-// console.log(Task.getTableName());
-// console.log(Task.fetchAll());
-// console.log(Task);
 export default Task
