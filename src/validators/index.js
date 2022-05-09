@@ -1,5 +1,5 @@
-import createTaskValidator from "./createTaskValidator"
-import updateTaskValidator from "./updateTaskValidator"
+import createTaskValidator from "@Validators/createTaskValidator"
+import updateTaskValidator from "@Validators/updateTaskValidator"
 
 export default {
   createTask: createTaskValidator,

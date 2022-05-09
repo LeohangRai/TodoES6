@@ -1,6 +1,6 @@
 import express from "express"
 import taskCtrl from "@Controllers/tasksController.js"
-import Validator from "../middlewares/Validator"
+import Validator from "@Middlewares/Validator"
 const Router = express.Router()
 
 Router.get("/", taskCtrl.findAll)

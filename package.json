@@ -29,6 +29,8 @@
     "@Controllers": "./src/controllers",
     "@Models": "./src/models",
     "@Services": "./src/services",
+    "@Middlewares": "./src/middlewares",
+    "@Validators": "./src/validators",
     "@BaseController": "./src/controllers/baseController.js",
     "@BaseService": "./src/services/baseService.js"
   },

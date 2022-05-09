@@ -1,4 +1,4 @@
-import validators from "../validators"
+import validators from "@Validators"
 
 function Validator(validatorName) {
   // check if there is a validator for the given name or not

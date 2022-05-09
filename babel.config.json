@@ -22,6 +22,8 @@
           "@Controllers": "./dist/controllers",
           "@Models": "./dist/models",
           "@Services": "./dist/services",
+          "@Middlewares": "./dist/middlewares",
+          "@Validators": "./dist/validators",
           "@BaseController": "./dist/controllers/baseController.js",
           "@BaseService": "./dist/services/baseService.js"
         }

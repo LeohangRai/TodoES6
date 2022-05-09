@@ -4,7 +4,7 @@ import express from "express"
 import bodyParser from "body-parser"
 import tasksRoute from "@Routes/tasksRoute"
 import userRoute from "@Routes/userRoute"
-import customErrorHandler from "./middlewares/errorHandler"
+import customErrorHandler from "@Middlewares/errorHandler"
 import CustomError from "./errors/CustomError"
 const app = express()
 const PORT = process.env.PORT || 3000
