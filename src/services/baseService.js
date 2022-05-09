@@ -1,3 +1,5 @@
+import CustomError from "../errors/CustomError"
+
 class BaseService {
   constructor(model) {
     this.model = model
@@ -8,10 +10,12 @@ class BaseService {
     this.deleteById = this.deleteById.bind(this)
   }
 
-  async create(data) {
+  async create(payload) {
     try {
-      let newObj = await this.model.forge(data).save()
-      return newObj
+      let data = await this.model.forge(payload).save()
+      return {
+        data,
+      }
     } catch (err) {
       throw new Error(err.message)
     }
@@ -19,8 +23,10 @@ class BaseService {
 
   async findAll() {
     try {
-      let objects = await this.model.fetchAll()
-      return objects
+      let data = await this.model.fetchAll()
+      return {
+        data,
+      }
     } catch (err) {
       throw new Error(err.message)
     }
@@ -28,45 +34,36 @@ class BaseService {
 
   async findById(id) {
     try {
-      const queryObj = await this.model.where({ id }).fetch({ require: true })
-      return queryObj
-    } catch (err) {
-      if (err.message === "EmptyResponse") {
-        throw new Error(
-          `There are no ${this.model.getTableName()} for the given id`
-        )
+      const data = await this.model.where({ id }).fetch({ require: true })
+      return {
+        data,
       }
-      throw new Error(err.message)
+    } catch (err) {
+      throw CustomError.errorFinder(err, this.model.getTableName())
     }
   }
 
-  async updateById(id, data) {
+  async updateById(id, payload) {
     try {
-      const obj = await this.model.where({ id }).fetch({ require: true })
-      const updatedObj = await obj.save(data)
-      return updatedObj
-    } catch (err) {
-      if (err.message === "EmptyResponse") {
-        throw new Error(
-          `There are no ${this.model.getTableName()} for the given id`
-        )
+      const row = await this.model.where({ id }).fetch({ require: true })
+      const data = await row.save(payload)
+      return {
+        data,
       }
-      throw new Error(err.message)
+    } catch (err) {
+      throw CustomError.errorFinder(err, this.model.getTableName())
     }
   }
 
   async deleteById(id) {
     try {
-      const obj = await this.model.where({ id }).fetch({ require: true })
-      await obj.destroy()
-      return "Deleted successfully"
-    } catch (err) {
-      if (err.message === "EmptyResponse") {
-        throw new Error(
-          `There are no ${this.model.getTableName()} for the given id`
-        )
+      const row = await this.model.where({ id }).fetch({ require: true })
+      await row.destroy()
+      return {
+        message: `${this.model.getTableName()} deleted successfully`,
       }
-      throw new Error(err.message)
+    } catch (err) {
+      throw CustomError.errorFinder(err, this.model.getTableName())
     }
   }
 }

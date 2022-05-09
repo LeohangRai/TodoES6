@@ -8,90 +8,48 @@ class BaseController {
     this.deleteById = this.deleteById.bind(this)
   }
 
-  /*
-    needs to be overridden in the sub class controllers with:
-      const { title, description } = req.body 
-    Pass them as object to the service.create function
-  */
-  async create(req, res) {
+  async create(req, res, next) {
     try {
-      const newObj = await this.service.create(req.body)
-      return res.status(200).json({
-        error: false,
-        data: newObj,
-      })
+      const data = await this.service.create(req.body)
+      return res.status(200).json(data)
     } catch (err) {
-      return res.status(400).json({
-        error: true,
-        msg: err.message,
-      })
+      next(err)
     }
   }
 
-  async findAll(req, res) {
+  async findAll(req, res, next) {
     try {
-      const objects = await this.service.findAll()
-      return res.status(200).json({
-        error: false,
-        data: objects,
-      })
+      const data = await this.service.findAll()
+      return res.status(200).json(data)
     } catch (err) {
-      return res.status(400).json({
-        error: true,
-        msg: err.message,
-      })
+      next(err)
     }
   }
 
-  async findById(req, res) {
+  async findById(req, res, next) {
     try {
-      const queryObj = await this.service.findById(req.params.id)
-      return res.status(200).json({
-        error: false,
-        data: queryObj,
-      })
-    } catch (err) {
-      return res.status(400).json({
-        error: true,
-        msg: err.message,
-      })
+      const data = await this.service.findById(req.params.id)
+      return res.status(200).json(data)
+    } catch (error) {
+      next(error)
     }
   }
 
-  /*
-    needs to be overridden in the sub class controllers with:
-      const { title, description } = req.body 
-    Pass them as object to the service.create function
-  */
-  async updateById(req, res) {
+  async updateById(req, res, next) {
     try {
-      const id = req.params.id
-      const data = req.body
-      const updatedObj = await this.service.updateById(id, data)
-      return res.status(200).json({
-        error: false,
-        data: updatedObj,
-      })
+      const data = await this.service.updateById(req.params.id, req.body)
+      return res.status(200).json(data)
     } catch (err) {
-      return res.status(400).json({
-        error: true,
-        msg: err.message,
-      })
+      next(err)
     }
   }
 
-  async deleteById(req, res) {
+  async deleteById(req, res, next) {
     try {
-      const deleteMsg = await this.service.deleteById(req.params.id)
-      return res.status(200).json({
-        error: false,
-        msg: deleteMsg,
-      })
+      const data = await this.service.deleteById(req.params.id)
+      return res.status(200).json(data)
     } catch (err) {
-      return res.status(400).json({
-        error: true,
-        msg: err.message,
-      })
+      next(err)
     }
   }
 }

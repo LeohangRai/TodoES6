@@ -1,7 +1,7 @@
-import taskValidator from "./taskValidators"
+import createTaskValidator from "./createTaskValidator"
 import updateTaskValidator from "./updateTaskValidator"
 
 export default {
-  task: taskValidator,
+  createTask: createTaskValidator,
   updateTask: updateTaskValidator,
 }

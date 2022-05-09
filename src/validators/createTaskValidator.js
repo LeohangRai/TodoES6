@@ -1,6 +1,6 @@
 import Joi from "@hapi/joi"
 
-const taskValidator = Joi.object({
+const createTaskValidator = Joi.object({
   title: Joi.string().max(30).required().messages({
     "any.required": `Title field is required`,
     "string.empty": "Title cannot be empty",
@@ -12,4 +12,4 @@ const taskValidator = Joi.object({
   }),
 })
 
-export default taskValidator
+export default createTaskValidator
