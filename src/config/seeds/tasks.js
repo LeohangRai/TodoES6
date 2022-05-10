@@ -8,6 +8,6 @@ exports.seed = async function (knex) {
   await knex("tasks").insert([
     { title: "dummy task 1", description: "Welcome to dummy task 1" },
     { title: "dummy task 2", description: "Welcome to dummy task 2" },
-    { title: "dummy task 3", description: "" },
+    { title: "dummy task 3", description: "This is dummy task 3" },
   ])
 }

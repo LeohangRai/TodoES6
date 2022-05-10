@@ -2,11 +2,12 @@
   "name": "todoes6",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "test": "npm run build && jest --watch --runInBand",
     "prepare": "npx husky install",
     "build": "npx babel src --out-dir dist",
-    "start": "npm run build && node dist/index",
+    "start": "npm run build && node dist/server",
     "git:add": "git add -A",
     "git:commit": "cz",
     "migrate": "npx knex migrate:latest --knexfile src/config/knexfile.js",
@@ -60,8 +61,10 @@
     "dotenv": "^16.0.0",
     "express": "^4.18.1",
     "http-errors": "^2.0.0",
+    "jest": "^28.1.0",
     "knex": "^0.21.21",
     "module-alias": "^2.2.2",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "supertest": "^6.2.3"
   }
 }

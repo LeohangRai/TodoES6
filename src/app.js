@@ -7,7 +7,6 @@ import userRoute from "@Routes/userRoute"
 import customErrorHandler from "@Middlewares/errorHandler"
 import CustomError from "./errors/CustomError"
 const app = express()
-const PORT = process.env.PORT || 3000
 
 // parse application/json
 app.use(bodyParser.json())
@@ -34,6 +33,4 @@ app.use((req, res, next) => {
 // error handler middleware
 app.use(customErrorHandler)
 
-app.listen(PORT, () => {
-  console.log("Server is up and running at PORT: ", PORT)
-})
+export default app
